@@ -6,6 +6,7 @@ import {
   Coffee,
   HandHeart,
   Sprout,
+  PartyPopper,
   MapPin,
 } from "lucide-react";
 import { volunteering } from "@/data/portfolio";
@@ -18,6 +19,7 @@ const icons = [
   Coffee,
   HandHeart,
   Sprout,
+  PartyPopper,
 ];
 export function Volunteering() {
   return (
@@ -40,19 +42,32 @@ export function Volunteering() {
               key={entry.title}
             >
               <span className="volunteer-icon">
-                <Icon size={24} strokeWidth={1.5} />
+                <Icon size={24} strokeWidth={1.5} aria-hidden="true" />
               </span>
-              <h3 lang="ar" dir="rtl">
-                {entry.title}
-              </h3>
-              <p className="volunteer-location">
-                <MapPin size={14} />
-                {entry.location}
-                <span className="date-label">{entry.date}</span>
-              </p>
-              {entry.organizer && (
-                <p className="organizer-pill">{entry.organizer}</p>
-              )}
+              <h3>{entry.title}</h3>
+              <div className="volunteer-meta">
+                <p className="volunteer-location">
+                  {entry.location && (
+                    <span>
+                      <MapPin size={14} aria-hidden="true" />
+                      {entry.location}
+                    </span>
+                  )}
+                  <span className="date-label">{entry.date}</span>
+                </p>
+                {(entry.organizer || entry.hours) && (
+                  <div className="volunteer-tags">
+                    {entry.organizer && (
+                      <p className="organizer-pill">{entry.organizer}</p>
+                    )}
+                    {entry.hours && (
+                      <p className="volunteer-hours">
+                        {entry.hours} volunteer hours
+                      </p>
+                    )}
+                  </div>
+                )}
+              </div>
             </article>
           );
         })}

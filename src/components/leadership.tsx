@@ -1,6 +1,15 @@
-import { Badge, BadgeCheck, Users, Sparkles } from "lucide-react";
+import {
+  CircuitBoard,
+  Users,
+  ChartNoAxesCombined,
+  Palette,
+  Bot,
+  Sparkles,
+} from "lucide-react";
 import { ieeeLeadership, memberships } from "@/data/portfolio";
 import { SectionHeading } from "./section-heading";
+const membershipIcons = [Users, ChartNoAxesCombined, Palette, Bot, Sparkles];
+
 export function Leadership() {
   return (
     <section
@@ -8,6 +17,17 @@ export function Leadership() {
       className="leadership-section section-space"
       aria-label="Leadership and memberships"
     >
+      <div className="card-holder-background" aria-hidden="true">
+        {[0, 1, 2].map((index) => (
+          <div className={`event-pass event-pass-${index}`} key={index}>
+            <span className="pass-lanyard" />
+            <span className="pass-clip" />
+            <span className="pass-portrait" />
+            <span className="pass-bar" />
+            <span className="pass-bar short" />
+          </div>
+        ))}
+      </div>
       <div className="section-shell">
         <SectionHeading
           label="Leadership & Memberships"
@@ -16,56 +36,56 @@ export function Leadership() {
         />
         <div className="leadership-layout">
           <article className="ieee-card">
-            <Badge
-              className="background-badge"
-              size={225}
-              strokeWidth={0.65}
-              aria-hidden="true"
-            />
             <div className="ieee-title">
               <span className="icon-tile">
-                <BadgeCheck size={24} />
+                <CircuitBoard size={24} aria-hidden="true" />
               </span>
               <div>
-                <h3>IEEE KAU SB</h3>
-                <p>Female student branch</p>
+                <h3>IEEE KAU SB (Female)</h3>
+                <p>My student branch leadership journey</p>
               </div>
             </div>
-            <div className="leadership-timeline">
+            <ol className="leadership-timeline">
               {ieeeLeadership.map((entry) => (
-                <div
+                <li
                   className={`timeline-entry ${entry.current ? "current" : ""}`}
                   key={entry.role}
                 >
-                  <span className="timeline-dot" />
-                  <div>
-                    <p className="date-label">{entry.period}</p>
-                    <h4>{entry.role}</h4>
-                    {entry.current && (
-                      <span className="small-chip">Current role</span>
-                    )}
-                  </div>
-                </div>
+                  <span className="timeline-dot" aria-hidden="true" />
+                  <h4>{entry.role}</h4>
+                  <p className="date-label">{entry.period}</p>
+                  {entry.current && (
+                    <span className="small-chip">Current role</span>
+                  )}
+                </li>
               ))}
-            </div>
+            </ol>
             <p className="ieee-footnote">
               Research, collaboration, and a growing responsibility to the
               community.
             </p>
           </article>
-          <div className="membership-list">
-            {memberships.map((entry, index) => (
-              <article className="membership-row" key={entry.organization}>
-                <span className="membership-icon">
-                  {index === 4 ? <Sparkles size={19} /> : <Users size={19} />}
-                </span>
-                <div>
-                  <h3>{entry.role}</h3>
-                  <p>{entry.organization}</p>
-                  <span className="date-label">{entry.period}</span>
-                </div>
-              </article>
-            ))}
+          <div className="membership-grid">
+            {memberships.map((entry, index) => {
+              const Icon = membershipIcons[index];
+              return (
+                <article className="membership-card" key={entry.organization}>
+                  <span className="membership-icon">
+                    <Icon size={22} aria-hidden="true" />
+                  </span>
+                  <div className="membership-content">
+                    <h3>{entry.organization}</h3>
+                    <p className="membership-role">{entry.role}</p>
+                    {entry.affiliation && (
+                      <p className="membership-affiliation">
+                        {entry.affiliation}
+                      </p>
+                    )}
+                    <p className="date-label">{entry.period}</p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </div>

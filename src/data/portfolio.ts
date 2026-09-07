@@ -8,13 +8,15 @@ export type ExperienceEntry = {
 };
 export type LeadershipEntry = {
   organization: string;
+  affiliation?: string;
   role: string;
   period: string;
   current?: boolean;
 };
 export type VolunteerEntry = {
   title: string;
-  location: string;
+  hours?: number;
+  location?: string;
   date: string;
   organizer?: string;
 };
@@ -65,19 +67,19 @@ export const experience: ExperienceEntry[] = [
 export const ieeeLeadership: LeadershipEntry[] = [
   {
     organization: "IEEE KAU SB (Female)",
-    role: "Chair",
-    period: "Sep 2026 - Present",
-    current: true,
+    role: "Research Community Leader",
+    period: "Sep 2024 – Sep 2025",
   },
   {
     organization: "IEEE KAU SB (Female)",
     role: "Vice-Chair",
-    period: "Sep 2025 - Aug 2026",
+    period: "Sep 2025 – Aug 2026",
   },
   {
     organization: "IEEE KAU SB (Female)",
-    role: "Research Community Leader",
-    period: "Sep 2024 - Sep 2025",
+    role: "Chair",
+    period: "Sep 2026 – Present",
+    current: true,
   },
 ];
 export const memberships: LeadershipEntry[] = [
@@ -93,6 +95,7 @@ export const memberships: LeadershipEntry[] = [
   },
   {
     organization: "Culture and Art Committee",
+    affiliation: "Faculty of Computing and Information Technology",
     role: "Planning and Execution Department Member",
     period: "Sep 2025 - Jun 2026",
   },
@@ -111,43 +114,50 @@ export const memberships: LeadershipEntry[] = [
 // TODO: Add volunteering years and verified event URLs when supplied. Do not infer them.
 export const volunteering: VolunteerEntry[] = [
   {
-    title: "تنظيم برنامج للحجاج",
+    title: "Pilgrims Program Organization",
     location: "Jeddah",
-    date: "03 June - 03 June",
-    organizer: "albir society jeddah",
+    date: "03 June – 03 June",
+    organizer: "Albir Society Jeddah",
   },
   {
-    title: "تنظيم زوار وفعاليات معرض الروبوتات والاختراعات -- روبوكون",
+    title:
+      "Visitor and Event Organization — Robocon Robotics & Inventions Exhibition",
     location: "Jeddah",
-    date: "15 June - 17 June",
+    date: "15 June – 17 June",
   },
   {
-    title: "منظم فعالية",
+    title: "Event Organizer",
     location: "Jeddah",
-    date: "09 September - 11 September",
-    organizer: "wedad charity foundation",
+    date: "09 September – 11 September",
+    organizer: "Wedad Charity Foundation",
   },
   {
-    title: "دورة الاتحاد لذوي الإعاقة في كيدزانيا",
+    title: "Al-Ittihad Program for People with Disabilities at KidZania",
     location: "Jeddah",
-    date: "25 September - 25 September",
+    date: "25 September – 25 September",
   },
   {
-    title: "تنظيم يوم القهوة العالمي",
+    title: "World Coffee Day Event Organization",
     location: "Jeddah",
-    date: "02 October - 02 October",
-    organizer: "albir society jeddah",
+    date: "02 October – 02 October",
+    organizer: "Albir Society Jeddah",
   },
   {
-    title: "تنسيق فعالية اليوم الوطني ساعة عطاء",
+    title: "National Day Event Coordination — An Hour of Giving",
     location: "Jeddah",
-    date: "12 October - 13 October",
+    date: "12 October – 13 October",
   },
   {
-    title: "تنظيم برنامج نحو مستقبل واعد",
+    title: "Towards a Promising Future Program Organization",
     location: "Jeddah",
-    date: "21 October - 21 October",
-    organizer: "albir society jeddah",
+    date: "21 October – 21 October",
+    organizer: "Albir Society Jeddah",
+  },
+  {
+    title: "New Year’s Event Preparation",
+    date: "December 2022",
+    organizer: "Sukoon International Extended Care Center",
+    hours: 5,
   },
 ];
 export const skillGroups: SkillGroup[] = [

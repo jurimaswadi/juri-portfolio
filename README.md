@@ -27,19 +27,21 @@ pnpm start
 - `src/data/portfolio.ts`: typed experience, leadership, volunteering, skills, certifications, and contact content.
 - `src/lib/utils.ts`: class-name composition.
 
-Most content renders on the server. Only navigation and the interactive cube use client-side React. The cube is a six-face CSS 3D illustration, not a puzzle solver: drag it, use arrow keys or the rotation buttons, and press Home or the reset button to restore its starting orientation. Motion values update transforms without React rerenders. It does not use WebGL, textures, or a continuous animation loop.
+Most content renders on the server. Navigation, the brick robot, and the cube are isolated client components. The robot assembles once when at least half visible, with front-facing proportions that stay upright.
+
+The cube uses 26 CSS 3D cubies with 54 stickers. Its initial arrangement is produced by six valid quarter-turns from a solved cube. When 60% visible, it reverses those turns in roughly 3–4 seconds and stays solved until the page is remounted. There are no visitor controls, WebGL dependencies, color swaps, or continuous animation loops. Reduced motion shows the assembled robot and resolves the cube immediately on entry. The pure cube model is in `src/lib/cube.ts`; run `pnpm test` for its invariants.
 
 ## Design and accessibility
 
-Warm light neutrals with charcoal text, Cormorant Garamond display type, Manrope body text, and Noto Sans Arabic for volunteering titles. Fonts are served by Next.js, with no runtime Google Fonts requests. The first build needs network access to fetch the font files.
+Warm light neutrals with charcoal text, Cormorant Garamond display type, Manrope body text with all volunteering content presented in English. Fonts are served by Next.js, with no runtime Google Fonts requests. The first build needs network access to fetch the font files.
 
-The supplied six-color palette lives in CSS custom properties. Rose is the primary interactive accent; the other colors appear in small details, the original brick-flower illustration, and the cube. Cards use a consistent 24px radius, with pill-shaped chips and buttons. The chosen direction is an airy editorial portfolio: design variance 6/10, motion intensity 3/10, visual density 3/10.
+The supplied six-color palette lives in CSS custom properties. Rose is the primary interactive accent; the other colors appear in small details, the original brick-robot illustration, and the cube. Cards use a consistent 24px radius, with pill-shaped chips and buttons. The chosen direction is an airy editorial portfolio: design variance 6/10, motion intensity 3/10, visual density 3/10.
 
-Navigation has section tracking, a mobile disclosure menu, Escape handling, and a skip link. The flower assembles once; reduced-motion preferences disable decorative animation and smooth scrolling. The cube supports keyboard, pointer, touch, and explicit single-click controls. Arabic titles have `lang="ar"` and `dir="rtl"` independently of English metadata. No fake proficiency percentages, event links, achievements, or credential links are used.
+Navigation has section tracking, a mobile disclosure menu, Escape handling, and a skip link. Reduced-motion preferences disable decorative animation and smooth scrolling. The robot and cube have concise visual descriptions and no focusable controls. Leadership presents the chronological IEEE progression first, followed by five organization cards. Three abstract conference-pass holders decorate the background without covering content. No fake proficiency percentages, event links, achievements, or credential links are used.
 
 ## Content TODOs
 
-- Add volunteering years when confirmed; only supplied day/month ranges are shown.
+- Add missing volunteering years when confirmed. Sukoon is dated December 2022 and records five volunteer hours; its unspecified location is omitted.
 - Add verified volunteering and certification URLs if provided. Cards are intentionally informational until then.
 - Add missing certification issue dates only when confirmed.
 - Add a canonical URL and social preview image after a live site domain is selected. A GitHub source repository is not a hosted website.
