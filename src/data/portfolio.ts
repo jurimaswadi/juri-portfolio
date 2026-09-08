@@ -34,7 +34,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/jurimaswadi/",
   github: "https://github.com/jurimaswadi",
   summary:
-    "An A+ and first-honor student with a gifted-school background, passionate about AI, cloud engineering, data engineering, and building impactful technology.",
+    "First Honors Information Technology student with a gifted-school background and a strong interest in AI, cloud engineering, data engineering, and software development.",
 };
 export const navigation = [
   { id: "home", label: "Home" },

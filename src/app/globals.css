@@ -273,49 +273,6 @@ h4 {
   max-width: 490px;
   margin-top: 17px;
 }
-.hero-summary strong {
-  color: var(--foreground);
-  font-weight: 600;
-}
-.hero-actions {
-  display: flex;
-  align-items: center;
-  gap: 27px;
-  margin-top: 28px;
-}
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 550;
-  padding: 15px 23px;
-  white-space: nowrap;
-  transition:
-    transform 0.2s,
-    background 0.2s;
-}
-.button-primary {
-  background: var(--foreground);
-  color: var(--surface);
-}
-.button-primary:hover {
-  background: #454f3e;
-  transform: translateY(-2px);
-}
-.text-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  font-size: 12px;
-  font-weight: 550;
-  padding-block: 12px;
-}
-.text-link:hover {
-  color: var(--accent);
-}
 .hero-art {
   padding-top: 4px;
   align-self: center;
@@ -491,50 +448,6 @@ h4 {
 .tiny-plus {
   font-size: 19px;
   color: var(--accent);
-}
-.intern-note {
-  display: flex;
-  gap: 13px;
-  align-items: center;
-  width: calc(100% - 38px);
-  margin: 15px auto 0;
-}
-.note-icon {
-  width: 39px;
-  height: 39px;
-  border-radius: 12px;
-  display: grid;
-  place-items: center;
-  background: var(--green-surface);
-  color: #687a3d;
-}
-.note-label {
-  color: var(--muted);
-  font-size: 10px;
-}
-.intern-note p {
-  font-size: 12px;
-  font-weight: 550;
-}
-.hero-highlights {
-  grid-column: 1 / -1;
-  display: flex;
-  gap: 46px;
-  padding-block: 25px;
-  margin-top: 47px;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  color: #686c62;
-  font-size: 12px;
-}
-.hero-highlights span {
-  position: relative;
-}
-.hero-highlights span:not(:last-child)::after {
-  content: "/";
-  position: absolute;
-  right: -26px;
-  color: #b9bcad;
 }
 .about-panel {
   display: grid;
@@ -1378,12 +1291,6 @@ h4 {
   .robot-figure {
     height: 390px;
   }
-  .hero-actions {
-    gap: 17px;
-  }
-  .button {
-    padding-inline: 18px;
-  }
   .about-panel {
     padding: 35px;
     gap: 35px;
@@ -1457,18 +1364,8 @@ h4 {
   .hero-headline {
     font-size: 16px;
   }
-  .hero-actions {
-    gap: 16px;
-    flex-wrap: wrap;
-  }
   .robot-figure {
     height: 380px;
-  }
-  .intern-note {
-    width: 100%;
-  }
-  .intern-note p {
-    font-size: 11px;
   }
   .section-space {
     padding-block: 75px;
@@ -1602,10 +1499,6 @@ h4 {
     font-size: 13px;
     max-width: 560px;
   }
-  .hero-actions {
-    margin-top: 24px;
-    gap: 22px;
-  }
   .hero-art {
     margin-top: 36px;
     width: 100%;
@@ -1623,19 +1516,6 @@ h4 {
   .orbit-two {
     width: 235px;
     height: 235px;
-  }
-  .intern-note {
-    width: calc(100% - 24px);
-  }
-  .hero-highlights {
-    margin-top: 28px;
-    gap: 12px 28px;
-    flex-wrap: wrap;
-    font-size: 11px;
-    padding-block: 20px;
-  }
-  .hero-highlights span:not(:last-child)::after {
-    display: none;
   }
   .about-panel {
     grid-template-columns: 1fr;
@@ -1791,17 +1671,6 @@ h4 {
   .hero h1 {
     font-size: 78px;
   }
-  .hero-actions {
-    gap: 12px;
-  }
-  .button {
-    padding-inline: 16px;
-    font-size: 12px;
-    gap: 10px;
-  }
-  .text-link {
-    font-size: 11px;
-  }
   .cube-stage {
     --cube-size: 170px;
   }
@@ -1849,9 +1718,6 @@ h4 {
   }
   .hero h1 > span {
     display: inline;
-  }
-  .hero-highlights {
-    margin-top: 20px;
   }
   .skills-layout {
     grid-template-columns: 1fr;
