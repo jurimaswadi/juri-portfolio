@@ -1,3 +1,7 @@
+import type { StaticImageData } from "next/image";
+import mawhibaLogo from "../../public/logos/mawhiba-logo-cropped.png";
+import tingLogo from "../../public/logos/ting-logo-black.webp";
+
 export type ExperienceEntry = {
   organization: string;
   role: string;
@@ -5,6 +9,12 @@ export type ExperienceEntry = {
   description: string;
   location?: string;
   current?: boolean;
+  logo: {
+    src: StaticImageData;
+    alt: string;
+    tone: "pink-tint" | "green-tint";
+    format: "wordmark" | "stacked";
+  };
 };
 export type LeadershipEntry = {
   organization: string;
@@ -53,6 +63,12 @@ export const experience: ExperienceEntry[] = [
     period: "Jun 2026 - Present",
     location: "Jeddah, Makkah, Saudi Arabia · On-site",
     current: true,
+    logo: {
+      src: tingLogo,
+      alt: "Ting logo",
+      tone: "pink-tint",
+      format: "wordmark",
+    },
     description:
       "Currently training in software engineering and full-stack development, connecting academic learning with hands-on experience in a professional environment.",
   },
@@ -60,6 +76,12 @@ export const experience: ExperienceEntry[] = [
     organization: "Mawhiba",
     role: "Gifted Student - Mawhiba Program",
     period: "Apr 2020 - Jun 2023",
+    logo: {
+      src: mawhibaLogo,
+      alt: "Mawhiba logo",
+      tone: "green-tint",
+      format: "stacked",
+    },
     description:
       "Advanced learning in STEM, critical thinking, and research through the Mawhiba Program for gifted students. A formative foundation in technology and scientific inquiry.",
   },

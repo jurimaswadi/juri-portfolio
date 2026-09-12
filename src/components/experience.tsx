@@ -1,4 +1,5 @@
-import { ArrowUpRight, MapPin, Code2, Atom } from "lucide-react";
+import Image from "next/image";
+import { MapPin } from "lucide-react";
 import { experience } from "@/data/portfolio";
 import { SectionHeading } from "./section-heading";
 export function Experience() {
@@ -14,20 +15,21 @@ export function Experience() {
         description="From early research to software engineering, each experience adds a new perspective."
       />
       <div className="experience-list">
-        {experience.map((entry, index) => (
+        {experience.map((entry) => (
           <article className="experience-row" key={entry.organization}>
-            <div
-              className={`experience-symbol ${index === 0 ? "pink-tint" : "green-tint"}`}
-            >
-              {index === 0 ? <Code2 size={28} /> : <Atom size={28} />}
+            <div className={`experience-symbol ${entry.logo.tone}`}>
+              <Image
+                src={entry.logo.src}
+                alt={entry.logo.alt}
+                className={`experience-logo experience-logo-${entry.logo.format}`}
+                sizes="(max-width: 980px) 68px, (max-width: 1150px) 80px, 92px"
+              />
             </div>
             <div className="experience-company">
               <h3>{entry.organization}</h3>
               <p>{entry.period}</p>
               {entry.current && (
-                <span className="status-badge">
-                  Currently training <ArrowUpRight size={13} />
-                </span>
+                <span className="status-badge">Currently training</span>
               )}
             </div>
             <div className="experience-detail">
